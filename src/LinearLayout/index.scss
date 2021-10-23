@@ -1,0 +1,28 @@
+@mixin LinearLayout {
+	display: flex;
+	flex-shrink: 0;
+	overflow: hidden;
+
+	user-select: none;
+
+	&[orientation=x] {
+		flex-direction: row;
+	}
+	&:not([orientation=x]) {
+		flex-direction: column;
+	}
+	&[position=abs] {
+		position: absolute;
+	}
+	&[position=fixed] {
+		position: fixed;
+	}
+	&[scrollable=true] {
+		overflow: unset;
+	}
+}
+
+
+linear-layout {
+	@include LinearLayout;
+}

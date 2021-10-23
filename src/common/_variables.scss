@@ -1,0 +1,49 @@
+@use 'sass:color' as color;
+
+
+$font-size: 16px !default;
+$line-height: 1.5 !default;
+
+$widget-font-size: 1.5rem !default;
+
+
+$border-radius: .5rem !default;
+
+
+$track-width: .675rem !default;
+$thumb-alpha: .35 !default;
+
+
+$color: hsl(0, 0%, 15%) !default;
+$disable-scale: -25% !default;
+
+$background-color: hsl(0, 0%, 100%) !default;
+
+
+$hover-alpha: .1 !default;
+$overlay-alpha: .5 !default;
+
+
+$transition-duration: .3s;
+
+
+@mixin button {
+	position: relative;
+	&::before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		transition: background-color $transition-duration;
+		content: "";
+	}
+	&:hover, &:focus {
+		&::before {
+			background-color: rgba($color, $hover-alpha);
+		}
+	}
+	&:disabled {
+		color: color.scale($color, $lightness: $disable-scale);
+	}
+}

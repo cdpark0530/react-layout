@@ -1,0 +1,38 @@
+@use 'common/variables' as *;
+@use 'LinearLayout' as *;
+
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+:not(:defined) {
+	display: none;
+}
+
+html {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	font-weight: normal;
+	font-size: $font-size;
+	line-height: $line-height;
+
+	background-color: $background-color;
+	color: $color; // rgba($color, $primary-alpha);
+
+	-moz-osx-font-smoothing: grayscale;
+	 -webkit-font-smoothing: antialiased;
+	/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS. */
+	-webkit-text-size-adjust: 100%;
+	    -ms-text-size-adjust: 100%;
+}
+
+body {
+	overflow: hidden;
+	margin: 0;
+}
+
+root-view {
+	@include LinearLayout;
+
+	height: 100vh;
+}

@@ -1,0 +1,35 @@
+@use 'LinearLayout' as *;
+
+
+@mixin ListView {
+	@include LinearLayout;
+
+	flex-grow: 1;
+	flex-shrink: 1; // lets the viewport size limited to its parent
+
+	position: relative; // for its tracks having absolute position
+
+	&[orientation=x] {
+		overflow-x: scroll;
+
+		> [scrollable=true] > :first-child {
+			left: 0;
+		}
+	}
+	&:not([orientation=x]) {
+		overflow-y: scroll;
+
+		> [scrollable=true] > :first-child {
+			top: 0;
+		}
+	}
+
+	> [scrollable=true] > :first-child {
+		position: sticky;
+	}
+}
+
+
+list-view {
+	@include ListView;
+}
